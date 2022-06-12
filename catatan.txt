@@ -18,3 +18,5 @@ str_replace(' ', '-', $namaVar);
 strtolower($namaVar);
 
 Upload File ref: https://www.studentstutorial.com/php/file-upload-in-php-mysql#:~:text=For%20upload%20file%20in%20MySQL%20first%20we%20have,process%20the%20user%20data%20and%20upload%20the%20file. 
+
+banyak method post dalam satu file menggunkan switch untuk pengkondisian $_POST pada "name" di button type submit.

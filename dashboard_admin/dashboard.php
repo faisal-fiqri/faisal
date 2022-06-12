@@ -224,7 +224,7 @@ if ($_GET["dashboard"] == "user"){
             <div class="card shadow-lg border-0 rounded-lg mt-5">
                 <div class="card-header bg-dark"><h3 class="text-center font-weight-light my-4 text-light">Upload Materi</h3></div>
                 <div class="card-body">
-                    <form aciton="dashboard-action-materi.php" method="post" >
+                    <form action="dashboard-action-materi.php" method="post" enctype="multipart/form-data" >
                     <div class="form-group">
                             <label for="inputMateri">Judul Materi</label>
                             <input class="form-control" id="inputMateri" type="text" name="inputMateri" placeholder="Masukkan Judul Materi" required />
@@ -285,7 +285,7 @@ if ($_GET["dashboard"] == "user"){
             <div class="card shadow-lg border-0 rounded-lg mt-5">
                 <div class="card-header bg-dark"><h3 class="text-center font-weight-light my-4 text-light">Upload Video</h3></div>
                 <div class="card-body">
-                    <form action="dashboard-action.php" method="post">
+                    <form action="dashboard-action-video.php" method="post">
                         <div class="form-group">
                             <label for="inputVideo">Judul Video</label>
                             <input class="form-control" id="inputVideo" type="text" name="inputVideo" placeholder="Masukkan Judul Video" required/>

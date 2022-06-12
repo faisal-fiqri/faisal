@@ -1,21 +1,28 @@
 <?php 
-//Video
+//Materi
     require_once "../config.php";
-
-    //https://www.w3schools.com/php/php_mysql_insert.asp
 
     $judul = $_POST["inputMateri"];
     $kelas = $_POST["inputKelas"];
     $mapel = $_POST["inputMapel"];
-    $link= mysqli_real_escape_string($db, $_POST["inputFile"]);
+    // var_dump($_FILES["inputFile"][]); die;
+    $file = $_FILES['inputFile']['name'];
     $deskripsi = $_POST["inputDeskripsi"];
     
-    // var_dump($_POST); die;
-    $query = "INSERT INTO video VALUES('', '$kelas', '$mapel', '$link', '$deskripsi', '$judul')";
+    $folder = "assets/file/";
+    $filename = $_FILES["inputFile"]["name"];
+    $filename = strtolower($filename);
+    $filename = str_replace(' ', '-', $filename);
+    $file_loc = $_FILES["inputFile"]["tmp_name"];
+    move_uploaded_file($file_loc,$folder.$filename);
+    // var_dump($filename); die;
+    $query = "INSERT INTO materi VALUES('', '$judul', '$kelas', '$mapel', '$filename', '$deskripsi')";
+
+    // mysqli_query($db, $query);
 
 
     if(mysqli_query($db, $query)){
-    
+        
         header("Location: index.php?dashboard=video");
     }else{
         echo "Error: " . $query . "<br>" . mysqli_error($db);
