@@ -1,3 +1,45 @@
+<?php 
+require "config.php";
+if( isset($_POST["nama"])){
+    
+        $username = strtolower(stripslashes($_POST["nama"]));
+        $email = $_POST["email"];
+        $password = mysqli_real_escape_string($db, $_POST["password"]);
+        $password2 = mysqli_real_escape_string($db, $_POST["password2"]);
+
+        if($password !== $password2){
+            echo "  <script>
+                        alert('Konfirmasi Password tidak sesuai');
+                    </script>";
+           
+        }else{
+            //enkripsi password
+            $password = password_hash($password, PASSWORD_DEFAULT);
+            // var_dump($password); die;
+            
+            mysqli_query($db, "INSERT INTO users VALUES (NULL, '$username', '$email', '$password')");
+            
+            if(mysqli_affected_rows($db)){
+                echo "<script>
+                        alert('user baru berhasil ditambahkan!');
+                      </script>";
+                
+                session_start();
+                
+                $_SESSION["email"] = $email;
+                $_SESSION["password"] = $password;
+                header("Location: akun/beranda.php");
+            }else{
+                echo "gagal";
+            }
+        
+        }
+   
+        // echo mysqli_error($db);
+    
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +48,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ruang Siswa</title>
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styleindex.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styleindex.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -50,8 +92,8 @@
             <center>
                 <h1 class="block text-grey-darker text-sm font-bold" style="margin-top: 10px; margin-bottom: 40px; font-size: 30px;">Daftar</h1>
             </center>
-            <form action="register-action.php" method="post" >
-            <div class="mb-4">
+            <form action="" method="post" >
+                <div class="mb-4">
                     <label class="block text-grey-darker text-sm font-bold mb-2" for="nama">
                         Nama Lengkap
                     </label>
@@ -63,11 +105,17 @@
                     </label>
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="email" type="email" name="email" placeholder="john@gmail.com">
                 </div>
-                <div class="mb-6">
+                <div class="mb-4">
                     <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
                         Password
                     </label>
-                    <input class="shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3" name="password" id="password" type="password" placeholder="******">
+                    <input class="shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-2" name="password" id="password" type="password" placeholder="******">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
+                        Konfirmasi Password
+                    </label>
+                    <input class="shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-2" name="password2" id="password2" type="password" placeholder="******">
                 </div>
                 <div class="flex items-center justify-between">
                     <button class="bg-primary hover:bg-blue-dark text-white font-bold py-2 px-4 rounded" type="submit">
@@ -83,7 +131,7 @@
     
 
     <!-- Footer -->
-    <footer class="container-footer">
+    <!-- <footer class="container-footer">
       <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-4 col-xl-4 footer">
@@ -107,7 +155,7 @@
       <div class="container">
         <p><i class="fa fa-copyright"></i> Ruang Siswa 2022. All Rights Reserved. <a href="" style="float: right;">Bantuan</a></p>
       </div>
-    </div>
+    </div> -->
 
 
     <script src="js/bootstrap.bundle.min.js"></script>

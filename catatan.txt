@@ -1,0 +1,6 @@
+Isian
+ - Tentang Kami
+ - Footer
+ 
+Tampilan
+ - placeholder register dan login
