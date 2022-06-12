@@ -14,6 +14,9 @@ git diff (membandingkan commits)
 git branch -d nameBranch (hapus branch)
 git switch -f master (switch branch tanpa validasi commit)
 
+git stash
+git stash pop
+
 str_replace(' ', '-', $namaVar);
 strtolower($namaVar);
 
