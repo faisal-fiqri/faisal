@@ -5,3 +5,7 @@ Isian
 Tampilan
  - placeholder register dan login
  - navbar ketika burger gabisa di pencet
+
+git log (history commit)
+git diff (membandingkan commits)
+git branch -d nameBranch (hapus branch)
