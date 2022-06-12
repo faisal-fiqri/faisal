@@ -4,3 +4,4 @@ Isian
  
 Tampilan
  - placeholder register dan login
+ - navbar ketika burger gabisa di pencet

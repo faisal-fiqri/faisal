@@ -78,7 +78,7 @@
     
 
     <!-- Footer -->
-    <footer class="container-footer">
+    <!-- <footer class="container-footer">
       <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-4 col-xl-4 footer">
@@ -102,7 +102,7 @@
       <div class="container">
         <p><i class="fa fa-copyright"></i> Ruang Siswa 2022. All Rights Reserved. <a href="" style="float: right;">Bantuan</a></p>
       </div>
-    </div>
+    </div> -->
 
 
     <script src="js/bootstrap.bundle.min.js"></script>

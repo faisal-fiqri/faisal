@@ -159,7 +159,7 @@ if ($_GET["dashboard"] == "user"){
 ?>
 
 <!-- Form Input User -->
-<div class="container">
+<!-- <div class="container">
     <div class="row justify-content-center">
         <div class="fluid">
             <div class="card shadow-lg border-0 rounded-lg mt-5">
@@ -206,7 +206,7 @@ if ($_GET["dashboard"] == "user"){
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- End Form Input User -->
 
 <?php

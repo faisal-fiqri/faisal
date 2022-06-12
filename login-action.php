@@ -1,49 +1,43 @@
 <?php
     // Memanggil file koneksi
-    //include "koneksi.php";
-
-    //Deklarasi Variabel
-    $emailLogin = "andhika@gmail.com";
-    $passwordLogin = "Andhika123";
-    $admin ="admin@mail.com";
-    $pwadmin="admin";
-    //Memulai Session
-    session_start();
+    require "config.php";
 
     //Mengambil data dari halaman Login
     $email = $_POST["email"];
     $password = $_POST["password"];
 
     // Memanggil username dan password dari database
-    /* $query = mysqli_query($koneksi, "SELECT username, password FROM user WHERE username = '$username' AND password = '$password'");
-    $hasil = mysqli_num_rows($query);*/
+    $query = mysqli_query($db, "SELECT email, password, admin FROM users WHERE email = '$email' AND password = '$password'");
+    $hasil = mysqli_num_rows($query);
+
+    //  var_dump($hasil); die;
 
     //Validasi Login
-    /* if ($hasil > 0) {
-        session_start();
-        $_SESSION["username"] = $username;
-        $_SESSION["password"] = $password;
+    if ($hasil > 0) {
 
-        header("Location: afterLogin/beranda.php");
+        $row = mysqli_fetch_assoc($query);
+        var_dump($row);
+        if($row["admin"] == 1){
+            header("Location:dashboard_admin/index.php?dashboard=home");
+        }else{
+            if(password_verify($password, $row["password"])){
+                session_start();
+                $_SESSION["email"] = $email;
+                $_SESSION["password"] = $password;
+                echo 'berhasil';
+                header("Location: afterLogin/beranda.php");
+            }
+        }
+        
+        
     } else {
-        header("Location: login.php");
-    }*/
-
-    //Validasi Login
-    if ($email == $emailLogin && $password == $passwordLogin) {
-        session_start();
-        $_SESSION["email"] = $email;
-        $_SESSION["password"] = $password;
-
-        header("Location: akun/beranda.php");
-    } else if($email == $admin && $password == $pwadmin) {
-        session_start();
-        $_SESSION["email"] = $email;
-        $_SESSION["password"] = $password;
-        header("Location:dashboard_admin/index.php?dashboard=home");
-    }
-        else{
+        echo "  <script> 
+                    alert('Email atau Password salah')
+                </script>";
         header("Location: login.php");
     }
+
+
+   
 
 ?>

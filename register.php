@@ -6,7 +6,7 @@ if( isset($_POST["nama"])){
         $email = $_POST["email"];
         $password = mysqli_real_escape_string($db, $_POST["password"]);
         $password2 = mysqli_real_escape_string($db, $_POST["password2"]);
-
+        // var_dump($username); die;
         if($password !== $password2){
             echo "  <script>
                         alert('Konfirmasi Password tidak sesuai');
@@ -17,12 +17,12 @@ if( isset($_POST["nama"])){
             $password = password_hash($password, PASSWORD_DEFAULT);
             // var_dump($password); die;
             
-            mysqli_query($db, "INSERT INTO users VALUES (NULL, '$username', '$email', '$password')");
+            mysqli_query($db, "INSERT INTO users VALUES ('', '$username', '$email', '$password')");
             
             if(mysqli_affected_rows($db)){
-                echo "<script>
-                        alert('user baru berhasil ditambahkan!');
-                      </script>";
+                // echo "<script>
+                //         alert('user baru berhasil ditambahkan!');
+                //       </script>";
                 
                 session_start();
                 
@@ -35,7 +35,7 @@ if( isset($_POST["nama"])){
         
         }
    
-        // echo mysqli_error($db);
+         echo mysqli_error($db);
     
 }
 
@@ -92,7 +92,7 @@ if( isset($_POST["nama"])){
             <center>
                 <h1 class="block text-grey-darker text-sm font-bold" style="margin-top: 10px; margin-bottom: 40px; font-size: 30px;">Daftar</h1>
             </center>
-            <form action="" method="post" >
+            <form action="register.php" method="post" >
                 <div class="mb-4">
                     <label class="block text-grey-darker text-sm font-bold mb-2" for="nama">
                         Nama Lengkap
