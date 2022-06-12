@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     // Memanggil file koneksi
     require "config.php";
 
@@ -17,14 +19,13 @@
         $row = mysqli_fetch_assoc($query);
         // var_dump($row);
         if($row["admin"] == 1){
+            $_SESSION["email"] = $email;
             header("Location:dashboard_admin/index.php?dashboard=home");
         }else{
             if(password_verify($password, $row["password"])){
-                session_start();
                 $_SESSION["email"] = $email;
-                $_SESSION["password"] = $password;
                 // echo 'berhasil';
-                header("Location: afterLogin/beranda.php");
+                header("Location: akun/beranda.php");
             }
         }
         

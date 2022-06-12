@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require "config.php";
 if( isset($_POST["nama"])){
     
@@ -23,11 +24,9 @@ if( isset($_POST["nama"])){
                 // echo "<script>
                 //         alert('user baru berhasil ditambahkan!');
                 //       </script>";
-                
-                session_start();
-                
+                           
                 $_SESSION["email"] = $email;
-                $_SESSION["password"] = $password;
+
                 header("Location: akun/beranda.php");
             }else{
                 echo "gagal";
