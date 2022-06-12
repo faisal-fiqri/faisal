@@ -4,8 +4,17 @@ Isian
  
 Tampilan
  - placeholder register dan login
- - navbar ketika burger gabisa di pencet
+ - navbar ketika burger gabisa di pencet == path js dipindahkan
+
+TBD
+ - procedure/fungsi untuk membatasi tampilan data yang di ambil (seleksi)
 
 git log (history commit)
 git diff (membandingkan commits)
 git branch -d nameBranch (hapus branch)
+git switch -f master (switch branch tanpa validasi commit)
+
+str_replace(' ', '-', $namaVar);
+strtolower($namaVar);
+
+Upload File ref: https://www.studentstutorial.com/php/file-upload-in-php-mysql#:~:text=For%20upload%20file%20in%20MySQL%20first%20we%20have,process%20the%20user%20data%20and%20upload%20the%20file. 

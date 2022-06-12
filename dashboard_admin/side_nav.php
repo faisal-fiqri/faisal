@@ -9,10 +9,10 @@
 
             <!-- Form Input -->
             <div class="sb-sidenav-menu-heading">Form Input</div>
-            <!-- <a class="nav-link" href="?dashboard=inp_user">
+            <a class="nav-link" href="?dashboard=inp_user">
                 <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                 Input User
-            </a> -->
+            </a>
             <a class="nav-link" href="?dashboard=inp_materi">
                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                 Input Materi
