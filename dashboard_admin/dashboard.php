@@ -1,4 +1,5 @@
 <?php
+
 if ($_GET["dashboard"] == "user"){
 ?>
 
@@ -158,13 +159,13 @@ if ($_GET["dashboard"] == "user"){
 ?>
 
 <!-- Form Input User -->
-<!-- <div class="container">
+<div class="container">
     <div class="row justify-content-center">
         <div class="fluid">
             <div class="card shadow-lg border-0 rounded-lg mt-5">
                 <div class="card-header bg-dark"><h3 class="text-center font-weight-light my-4 text-light">User Baru</h3></div>
                 <div class="card-body">
-                    <form>
+                    <form action="" method="post">
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <div class="form-floating mb-3 mb-md-0">
@@ -198,14 +199,18 @@ if ($_GET["dashboard"] == "user"){
                             </div>
                         </div>
                         <div class="mt-4 mb-0">
-                            <div class="d-grid"><a class="btn btn-success btn-block" href="login.html">Create Account</a></div>
+                            <button class="btn btn-success btn-block" type="submit">
+                            <!-- <div class="d-grid"><a class="btn btn-success btn-block" href="login.html"> -->
+                            Upload Data
+                            <!-- </a></div> -->
+                            </button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-</div> -->
+</div>
 <!-- End Form Input User -->
 
 <?php
@@ -219,24 +224,24 @@ if ($_GET["dashboard"] == "user"){
             <div class="card shadow-lg border-0 rounded-lg mt-5">
                 <div class="card-header bg-dark"><h3 class="text-center font-weight-light my-4 text-light">Upload Materi</h3></div>
                 <div class="card-body">
-                    <form>
+                    <form action="dashboard-action-materi.php" method="post" enctype="multipart/form-data" >
                     <div class="form-group">
-                            <label for="inputVideo">Judul Video</label>
-                            <input class="form-control" id="inputVideo" type="text" placeholder="Masukkan Judul Video" />
+                            <label for="inputMateri">Judul Materi</label>
+                            <input class="form-control" id="inputMateri" type="text" name="inputMateri" placeholder="Masukkan Judul Materi" required />
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Nama Kelas</label>
-                            <select name="classes_id" class="form-control" id="classes_id">
-                                <option value="">Klik untuk memilih kelas</option>
+                            <label for="inputKelas">Nama Kelas</label>
+                            <select name="inputKelas" class="form-control" id="inputKelas" required>
+                                <option value="" disabled selected hidden>Klik untuk memilih kelas</option>
                                 <option value="7">Kelas 7</option>                    
                                 <option value="8">Kelas 8</option>                    
                                 <option value="9">Kelas 9</option>      
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Mata Pelajaran</label>
-                            <select name="classes_id" class="form-control" id="classes_id">
-                                <option value="">Klik untuk memilih Mata Pelajaran</option>
+                            <label for="inputEmail">Mata Pelajaran</label>
+                            <select name="inputMapel" class="form-control" id="inputMapel" required>
+                                <option value="" disabled selected hidden>Klik untuk memilih Mata Pelajaran</option>
                                 <option value="IPA">IPA</option>                    
                                 <option value="IPS">IPS</option>                    
                                 <option value="Matematika">Matematika</option>      
@@ -247,14 +252,18 @@ if ($_GET["dashboard"] == "user"){
                         </div>
                         <div class="form-group">
                             <label for="inputFile">Upload Berkas</label>
-                            <input class="form-control" id="inputFile" type="file" placeholder="Masukkan File" />
+                            <input class="form-control" id="inputFile" type="file" name="inputFile" placeholder="Masukkan File" required />
                         </div>
                         <div class="form-group">
                             <label for="inputDeskripsi">Deskripsi</label>
-                            <textarea class="form-control" id="inputDeskripsi" rows="3"></textarea>
+                            <textarea class="form-control" id="inputDeskripsi" name="inputDeskripsi" rows="3" required></textarea>
                         </div>
                         <div class="mt-4 mb-0">
-                            <div class="d-grid"><a class="btn btn-success btn-block" href="login.html">Upload Data</a></div>
+                            <button class="btn btn-success btn-block" type="submit">
+                            <!-- <div class="d-grid"><a class="btn btn-success btn-block" href="login.html"> -->
+                            Upload Data
+                            <!-- </a></div> -->
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -276,24 +285,24 @@ if ($_GET["dashboard"] == "user"){
             <div class="card shadow-lg border-0 rounded-lg mt-5">
                 <div class="card-header bg-dark"><h3 class="text-center font-weight-light my-4 text-light">Upload Video</h3></div>
                 <div class="card-body">
-                    <form>
+                    <form action="dashboard-action-video.php" method="post">
                         <div class="form-group">
                             <label for="inputVideo">Judul Video</label>
-                            <input class="form-control" id="inputVideo" type="text" placeholder="Masukkan Judul Video" />
+                            <input class="form-control" id="inputVideo" type="text" name="inputVideo" placeholder="Masukkan Judul Video" required/>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Nama Kelas</label>
-                            <select name="classes_id" class="form-control" id="classes_id">
-                                <option value="">Klik untuk memilih kelas</option>
+                            <label for="inputKelas">Nama Kelas</label>
+                            <select name="inputKelas" class="form-control" id="inputKelas">
+                                <option value="" disabled selected hidden>Klik untuk memilih kelas</option>
                                 <option value="7">Kelas 7</option>                    
                                 <option value="8">Kelas 8</option>                    
                                 <option value="9">Kelas 9</option>      
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Mata Pelajaran</label>
-                            <select name="classes_id" class="form-control" id="classes_id">
-                                <option value="">Klik untuk memilih Mata Pelajaran</option>
+                            <label for="inputMapel">Mata Pelajaran</label>
+                            <select name="inputMapel" class="form-control" id="inputMapel" required>
+                                <option value="" disabled selected hidden>Klik untuk memilih Mata Pelajaran</option>
                                 <option value="IPA">IPA</option>                    
                                 <option value="IPS">IPS</option>                    
                                 <option value="Matematika">Matematika</option>      
@@ -304,14 +313,18 @@ if ($_GET["dashboard"] == "user"){
                         </div>
                         <div class="form-group">
                             <label for="inputLink">Link Video</label>
-                            <input class="form-control" id="inputLink" type="text" placeholder="Masukkan Alamat URL Video,misal : youtube.com/au87Q9" />
+                            <input class="form-control" id="inputLink" type="text" name="inputLink" placeholder="Masukkan Alamat URL Video,misal : youtube.com/au87Q9" required/>
                         </div>
                         <div class="form-group">
                             <label for="inputDeskripsi">Deskripsi</label>
-                            <textarea class="form-control" id="inputDeskripsi" rows="3"></textarea>
+                            <textarea class="form-control"  name="inputDeskripsi" id="inputDeskripsi" rows="3" required></textarea>
                         </div>
                         <div class="mt-4 mb-0">
-                            <div class="d-grid"><a class="btn btn-success btn-block" href="login.html">Upload Data</a></div>
+                            <button class="btn btn-success btn-block" type="submit">
+                            <!-- <div class="d-grid"><a class="btn btn-success btn-block" href="login.html"> -->
+                            Upload Data
+                            <!-- </a></div> -->
+                            </button>
                         </div>
                     </form>
                 </div>
