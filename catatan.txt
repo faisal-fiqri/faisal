@@ -17,6 +17,9 @@ git switch -f master (switch branch tanpa validasi commit)
 git stash
 git stash pop
 
+git pull
+git fetch
+
 str_replace(' ', '-', $namaVar);
 strtolower($namaVar);
 
