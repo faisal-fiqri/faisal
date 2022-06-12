@@ -34,7 +34,7 @@ if( isset($_POST["nama"])){
         
         }
    
-         echo mysqli_error($db);
+        //  echo mysqli_error($db);
     
 }
 
