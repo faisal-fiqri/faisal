@@ -17,7 +17,7 @@ if( isset($_POST["nama"])){
             $password = password_hash($password, PASSWORD_DEFAULT);
             // var_dump($password); die;
             
-            mysqli_query($db, "INSERT INTO users VALUES ('', '$username', '$email', '$password')");
+            mysqli_query($db, "INSERT INTO users VALUES ('', '$username', '$email', '$password', 0)");
             
             if(mysqli_affected_rows($db)){
                 // echo "<script>
