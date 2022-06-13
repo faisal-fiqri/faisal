@@ -251,8 +251,16 @@ if ($_GET["dashboard"] == "user"){
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="inputBAB">Nama BAB</label>
+                            <input class="form-control" id="inputBAB" type="text" name="inputBAB" placeholder="Masukkan Nama BAB" required/>
+                        </div>
+                        <div class="form-group">
                             <label for="inputFile">Upload Berkas</label>
                             <input class="form-control" id="inputFile" type="file" name="inputFile" placeholder="Masukkan File" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputCover">Upload Cover</label>
+                            <input class="form-control" id="inputCover" type="file" name="inputCover" placeholder="Masukkan Cover File" required />
                         </div>
                         <div class="form-group">
                             <label for="inputDeskripsi">Deskripsi</label>
@@ -314,6 +322,14 @@ if ($_GET["dashboard"] == "user"){
                         <div class="form-group">
                             <label for="inputLink">Link Video</label>
                             <input class="form-control" id="inputLink" type="text" name="inputLink" placeholder="Masukkan Alamat URL Video,misal : youtube.com/au87Q9" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputBAB">Nama BAB</label>
+                            <input class="form-control" id="inputBAB" type="text" name="inputBAB" placeholder="Masukkan Nama BAB" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputCover">Upload Cover</label>
+                            <input class="form-control" id="inputCover" type="file" name="inputCover" placeholder="Masukkan Cover File" required />
                         </div>
                         <div class="form-group">
                             <label for="inputDeskripsi">Deskripsi</label>
